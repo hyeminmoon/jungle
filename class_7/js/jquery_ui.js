@@ -22,8 +22,20 @@ $(function(){
 
             // 말풍선 태그를 추가하는 append
             $(".chat_area").append("<div class='item "+_class+"'><div class='box'><p class='msg'>"+_val+"</p><span class='time'>"+_time+"</span></div></div>")
+            // 트랜지션 효과를 쓰기 위해 0.01초 딜레이 타임 이후 on 클래스를 추가해줌
+
             setTimeout(function(){
                 $(".chat_area .item").last().addClass("on");
+
+                //내용추가 후 스크롤을 맨 밑으로 내림
+                var _itemH = $(".chat_area .item").height() + 15;
+                var _itemC = $(".chat_area .item").length;
+                var _itemTotal = _itemH * _itemC - 15;
+
+                // $(".chat_area").scrollTop(_itemTotal);
+                $(".chat_area").stop().animate({
+                    scrollTop:_itemTotal
+                }, 500);
             },10)
             
             $(this).val(""); // input의 입력된 내용을 삭제 * val("") = 값 초기화
