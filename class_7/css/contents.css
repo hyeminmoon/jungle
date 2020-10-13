@@ -4,6 +4,7 @@
     padding: 5px;
     font-size: 13px;
     color:#333;
+    box-sizing: border-box;
 }
 
 /* 채팅창 */
@@ -105,6 +106,9 @@
         border: 0;
     }
 
+    html, body, .wrap {
+        height: 100%;
+    }
     .chat_area{
         height: calc(100vh - 80px);
         box-sizing:border-box;
