@@ -18,7 +18,14 @@
 
 /* 메세지 */
 .chat_area .item {
+    opacity: 0; /* 투명도 */
+    transform: translateX(10px);
+    transition: all .3s ease-out;
+}
 
+.chat_area .item.on {
+    opacity: 1;
+    transform: translateX(0px) !important;
 }
 
 .chat_area .item + .item {
@@ -60,6 +67,7 @@
 /* 나의 메세지 */
 .chat_area .item.mymsg {
     text-align:right;
+    transform: translateX(-10px);
 }
 
 .chat_area .item.mymsg .box .msg {
@@ -104,6 +112,7 @@
     .wrap {
         width: 100%;
         border: 0;
+        font-size: 15px;
     }
 
     html, body, .wrap {
@@ -113,5 +122,13 @@
         height: calc(100vh - 80px);
         box-sizing:border-box;
 
+    }
+
+    .chat_area .item.mymsg .box .time{
+        font-size: 13px;
+    }
+
+    .chat_area input[type="text"]{
+        font-size: 15px;
     }
 }
